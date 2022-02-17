@@ -1,0 +1,268 @@
+/*画布容器*/
+#container {
+  overflow: scroll;
+  flex: 1;
+}
+#efContainer {
+  position: relative;
+}
+
+/*顶部工具栏*/
+.ef-tooltar {
+  padding-left: 10px;
+  box-sizing: border-box;
+  height: 42px;
+  line-height: 42px;
+  z-index: 3;
+  border-bottom: 1px solid #DADCE0;
+}
+
+.jtk-overlay {
+  cursor: pointer;
+  color: #4A4A4A;
+}
+
+
+/*节点菜单*/
+.ef-node-pmenu {
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+  width: 225px;
+  display: block;
+  font-weight: bold;
+  color: #4A4A4A;
+  padding-left: 5px;
+}
+
+.ef-node-pmenu:hover {
+  background-color: #E0E0E0;
+}
+
+.ef-node-menu-li {
+  color: #565758;
+  width: 150px;
+  border: 1px dashed #E0E3E7;
+  margin: 5px 0 5px 0;
+  padding: 5px 5px 5px 8px;
+  border-radius: 5px;
+}
+
+.ef-node-menu-li:hover {
+  /* 设置移动样式*/
+  cursor: move;
+  background-color: #F0F7FF;
+  border: 1px dashed #1879FF;
+  border-left: 4px solid #1879FF;
+  padding-left: 5px;
+}
+
+.ef-node-menu-ul {
+  list-style: none;
+  padding-left: 20px
+}
+
+/*节点的最外层容器*/
+.ef-node-container {
+  position: absolute;
+  display: flex;
+  width: 170px;
+  min-height: 32px;
+  border: 1px solid #E0E3E7;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.ef-node-container:hover {
+  /* 设置移动样式*/
+  cursor: move;
+  background-color: #F0F7FF;
+  /*box-shadow: #1879FF 0px 0px 12px 0px;*/
+  border: 1px dashed #1879FF;
+}
+
+/*节点激活样式*/
+.ef-node-active {
+  background-color: #F0F7FF;
+  /*box-shadow: #1879FF 0px 0px 12px 0px;*/
+  border: 1px solid #1879FF;
+}
+
+/*节点左侧的竖线*/
+.ef-node-left {
+  width: 4px;
+  background-color: #1879FF;
+  border-radius: 4px 0 0 4px;
+}
+.el-node-top {
+  position: relative;
+}
+.el-node-top>i {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: -17px;
+  border: 1px dashed #eeeeee;
+  cursor: pointer;
+  color: rgba(0,0,0,0.35);
+}
+
+/*节点左侧的图标*/
+.ef-node-left-ico {
+  /*width: 14px;*/
+  /*height: 14px;*/
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 8px;
+  /*margin-top: 9px;*/
+  /*border-radius: 50%;*/
+  /*background: #1879FF;*/
+}
+
+.ef-node-left-ico:hover {
+  /* 设置拖拽的样式 */
+  cursor: crosshair;
+}
+
+/*节点显示的文字*/
+.ef-node-text {
+  position: relative;
+  color: #565758;
+  font-size: 12px;
+  line-height: 32px;
+  margin-left: 8px;
+  width: 100px;
+  /* 设置超出宽度文本显示方式*/
+  white-space: nowrap;
+  /*overflow: hidden;*/
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.ef-node-tag-wrap {
+  position: absolute;
+  top: -29px;
+}
+
+/*节点右侧的图标*/
+.ef-node-right-ico {
+  line-height: 32px;
+  position: absolute;
+  right: 5px;
+  color: #84CF65;
+  cursor: default;
+}
+
+/*节点的几种状态样式*/
+.el-node-state-success {
+  line-height: 32px;
+  position: absolute;
+  right: 5px;
+  color: #84CF65;
+  cursor: default;
+}
+
+.el-node-state-error {
+  line-height: 32px;
+  position: absolute;
+  right: 5px;
+  color: #F56C6C;
+  cursor: default;
+}
+
+.el-node-state-warning {
+  line-height: 32px;
+  position: absolute;
+  right: 5px;
+  color: #E6A23C;
+  cursor: default;
+}
+
+.el-node-state-running {
+  line-height: 32px;
+  position: absolute;
+  right: 5px;
+  color: #84CF65;
+  cursor: default;
+}
+
+
+/*node-form*/
+.ef-node-form-header {
+  height: 32px;
+  border-top: 1px solid #dce3e8;
+  border-bottom: 1px solid #dce3e8;
+  background: #F1F3F4;
+  color: #000;
+  line-height: 32px;
+  padding-left: 12px;
+  font-size: 14px;
+}
+
+.ef-node-form-body {
+  margin-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+/* 连线中的label 样式*/
+.jtk-overlay.flowLabel:not(.aLabel) {
+  padding: 4px 10px;
+  background-color: white;
+  color: #565758 !important;
+  border: 1px solid #E0E3E7;
+  border-radius: 5px;
+}
+
+/* label 为空的样式 */
+.emptyFlowLabel {
+}
+
+
+.ef-dot {
+  background-color: #1879FF;
+  border-radius: 10px;
+}
+
+.ef-dot-hover {
+  background-color: red;
+}
+
+.ef-rectangle {
+  background-color: #1879FF;
+}
+
+.ef-rectangle-hover {
+  background-color: red;
+}
+
+.ef-img {
+}
+
+.ef-img-hover {
+}
+
+
+.ef-drop-hover {
+  border: 1px dashed #1879FF;
+}
+
+
+.jtk-overlay.flowLabel{
+  min-height: 18px;
+
+}
+#menu{
+  width: 0; /*设置为0 隐藏自定义菜单*/
+  height: 125px;
+  overflow: hidden; /*隐藏溢出的元素*/
+  box-shadow: 0 1px 1px #888,1px 0 1px #ccc;
+  position: absolute; /*自定义菜单相对与body元素进行定位*/
+}
+.menu{
+  width: 130px;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  background: #ffffff;
+}
