@@ -41,12 +41,15 @@ let dataB = {
       'id': 'nodeD',
       'name': '流程B-节点D</br>123</br>321',
       'type': 'task',
-      'left': '723px',
-      'top': '215px',
+      'left': '737px',
+      'top': '162px',
       'ico': 'el-icon-odometer',
       'background': '#84f7f4',
       'remark': '',
-      'tags': ['tag1', 'tag2'],
+      'tags': [
+        'tag1',
+        'tag2'
+      ],
       'state': 'running'
     },
     {
@@ -65,12 +68,36 @@ let dataB = {
       'id': 'elb9tearln',
       'name': '数据接入1',
       'type': 'timer',
-      'left': '1096px',
-      'top': '440px',
+      'left': '943px',
+      'top': '368px',
       'ico': 'el-icon-time',
       'background': '#e7d0ff',
       'remark': '',
       'tags': [],
+      'state': 'success'
+    },
+    {
+      'id': 'ushvigti05',
+      'name': '数据清理',
+      'type': 'over',
+      'left': '805px',
+      'top': '522px',
+      'ico': 'el-icon-shopping-cart-full',
+      'background': '#f8ffd2',
+      'tags': [],
+      'remark': '',
+      'state': 'success'
+    },
+    {
+      'id': 'llw3bsgbw',
+      'name': '流程结束',
+      'type': 'end',
+      'left': '515px',
+      'top': '528px',
+      'ico': 'el-icon-caret-right',
+      'background': '#409eff',
+      'tags': [],
+      'remark': '',
       'state': 'success'
     }
   ],
@@ -111,6 +138,16 @@ let dataB = {
     {
       'from': 't71otytggh',
       'to': 'elb9tearln',
+      'label': '条件'
+    },
+    {
+      'from': 'elb9tearln',
+      'to': 'ushvigti05',
+      'label': '条件'
+    },
+    {
+      'from': 'ushvigti05',
+      'to': 'llw3bsgbw',
       'label': '条件'
     }
   ]
