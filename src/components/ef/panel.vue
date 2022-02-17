@@ -54,7 +54,7 @@
         </div>
         <div style="position: fixed; width: 70%; background: #ffffff; z-index: 100;bottom: 15px;">
           <div style="display: flex;align-items: center;justify-content: center;padding: 10px 0;">
-            <span style="margin-right: 15px;" v-for="item in legends" :key="`${item.type}-${item.ico}`">
+            <span style="margin-right: 15px;" v-for="item in legends" :key="`${item.type}-${item.ico}`" :style="{background: item.background, padding: '5px 10px', borderRadius: '5px'}">
               <i style="margin-right: 6px;" :class="item.ico"></i>{{ item.type }}</span>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default {
     legends () {
       const list = this.data.nodeList
       let legend = list && list.map(item => {
-        return JSON.stringify({ type: item.type, ico: item.ico })
+        return JSON.stringify({ type: item.type, ico: item.ico, background: item.background })
       })
       legend = [...new Set(legend)]
       legend = legend && legend.map(item => JSON.parse(item))
