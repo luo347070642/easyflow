@@ -21,7 +21,8 @@
           <el-divider direction="vertical"></el-divider>
           <el-button type="primary" plain round @click="clearNodeList" size="mini">清除全部</el-button>
           <div style="float: right;margin-right: 5px">
-            <el-button type="info" plain round icon="el-icon-document" @click="dataInfo" size="mini">流程json数据</el-button>
+            <el-button type="info" plain round icon="el-icon-document" @click="dataInfo" size="mini">流程json数据
+            </el-button>
             <el-button type="primary" plain round @click="dataReloadB" icon="el-icon-refresh" size="mini">新建
             </el-button>
           </div>
@@ -54,7 +55,8 @@
         </div>
         <div style="position: fixed; width: 70%; background: #ffffff; z-index: 100;bottom: 15px;">
           <div style="display: flex;align-items: center;justify-content: center;padding: 10px 0;">
-            <span style="margin-right: 15px;" v-for="item in legends" :key="`${item.type}-${item.ico}`" :style="{background: item.background, padding: '5px 10px', borderRadius: '5px'}">
+            <span style="margin-right: 15px;" v-for="item in legends" :key="`${item.type}-${item.ico}`"
+                  :style="{background: item.background, padding: '5px 10px', borderRadius: '5px'}">
               <i style="margin-right: 6px;" :class="item.ico"></i>{{ item.type }}</span>
           </div>
         </div>
@@ -537,7 +539,7 @@ export default {
         }
       })
       this.childrenLines = []
-      this.childrenLines = [...new Set(this.getChildrenNode(this.data.lineList, nodeId))]
+      this.childrenLines = [...new Set(this.getChildrenNode(nodeId))]
       const childrenLines = this.childrenLines
       this.childrenLineKeys = [...new Set(childrenLines.map(item => item.to))]
       this.childrenLineKeys.forEach(item => {
@@ -555,13 +557,20 @@ export default {
       })
       this.showChildrenLine = !this.showChildrenLine
     },
-    getChildrenNode (list, nodeId) {
+    getChildrenNode (nodeId) {
       // 第一层获取from为nodeId
       let newArr = []
       const nodeDatas = this.data.lineList.filter(item => item.from === nodeId)
+      nodeDatas.forEach(node => {
+        newArr.push(node)
+      })
       if (nodeDatas.length !== 0) {
         nodeDatas.forEach(node => {
-          const res = this.getChildrenNode(this.data.lineList, node.to)
+          let res = this.getChildrenNode(node.to)
+          for (let i = 0; i < res.length; i++) {
+            newArr.push(res[i])
+          }
+          res = this.data.lineList.filter(item => item.to === node.to)
           for (let i = 0; i < res.length; i++) {
             newArr.push(res[i])
           }
